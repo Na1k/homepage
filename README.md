@@ -1,4 +1,4 @@
-# Personal homepage / portfolio [![GitHub](https://img.shields.io/github/license/cobidev/simplefolio?color=blue)](https://github.com/Na1k/homepage/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobidev/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobidev/simplefolio)
+# Personal homepage / portfolio [![GitHub](https://img.shields.io/github/license/cobidev/simplefolio?color=blue)](https://github.com/Na1k/homepage/blob/master/LICENSE.md)
 
 Thanks to [cobiwave](https://github.com/cobiwave) for the Template ([Simplefolio](https://github.com/cobiwave/simplefolio))! 
 
