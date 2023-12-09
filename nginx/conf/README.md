@@ -1,4 +1,13 @@
-# Konfiguration im Server
+# SSL Config with letsencrypt (certbot)
+- Used this tutorial https://phoenixnap.com/kb/letsencrypt-docker
+
+To renew the certificates, execute the following: 
+``` bash 
+sudo docker compose run --rm certbot renew [--dry-run]
+```
+
+
+# DEPRECATED Konfiguration im Server
 1. Download der Zertifikate von Ionos
 2. Übertragen auf Server (/srv/nginx/certs)
 3. Zusammenfassen von Intermediate und vollem Zertifikat zu bundle
