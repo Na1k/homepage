@@ -1,11 +1,51 @@
-version: '3.8'
+version: '3'
 services:
   homepage-service:
     container_name: homepage
     restart: always
-    image: "homepage:latest"
+    image: "na1k/homepage:latest"
     networks:
       - web_network
+
+  bauelemente-hoerl-frontend:
+    container_name: bauelemente-hoerl-frontend
+    restart: always
+    image: "na1k/bauelemente-hoerl:latest"
+    networks:
+      - hoerl_network
+
+  ghost:
+    container_name: blog
+    image: ghost:latest
+    restart: 'no'
+    ports:
+      - "2368:2368"
+    depends_on:
+      - db
+    environment:
+      url: http://blog.nick-kramer.de
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: ghost
+      database__connection__password: ghostdbpass
+      database__connection__database: ghostdb
+    volumes:
+      - /srv/ghost/content:/var/lib/ghost/content
+    networks:
+      - blog_network
+
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: toorPassMariadb
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ghostdbpass
+      MYSQL_DATABASE: ghostdb
+    volumes:
+      - /home/ghost/mysql:/var/lib/mysql
+    networks:
+      - blog_network
 
   nginx:
     container_name: nginx
@@ -13,12 +53,30 @@ services:
     image: "nginx:latest"
     ports:
       - "80:80"
+      - "443:443"
     volumes:
-      - ./nginx/conf/homepage.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/homepage.conf:/etc/nginx/conf.d/default.conf
+      - ./certbot/www/:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/letsencrypt:ro
     networks:
       - web_network
+      - blog_network
+      - hoerl_network
     depends_on:
       - homepage-service
+      - bauelemente-hoerl-frontend
+      - ghost
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+
 networks:
   web_network:
+    driver: bridge
+  blog_network:
+    driver: bridge
+  hoerl_network:
     driver: bridge
