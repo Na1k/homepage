@@ -1,0 +1,327 @@
+---
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Nick Kramer" description="About Nick Kramer">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			/>
+			<section>
+				<section>
+					<h2 class="section-title">Skills</h2>
+					<div class="content">
+						<div class="skills-grid">
+							<div class="skill-category">
+								<h3>Frontend Development</h3>
+								<ul>
+									<li>React.js</li>
+									<li>Micro Frontend Architecture</li>
+									<li>JavaScript / Typescript</li>
+									<li>CSS</li>
+								</ul>
+							</div>
+							<div class="skill-category">
+								<h3>Backend Development</h3>
+								<ul>
+									<li>Kotlin</li>
+									<li>Spring Boot</li>
+									<li>Python</li>
+									<li>RESTful APIs</li>
+								</ul>
+							</div>
+							<div class="skill-category">
+								<h3>Tools & Practices</h3>
+								<ul>
+									<li>Git</li>
+									<li>Docker</li>
+									<li>CI/CD</li>
+									<li>Agile Methodologies</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<h2 class="section-title">Professional Journey</h2>
+				<div class="content timeline">
+					<div class="timeline-entry">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<h3 class="role">Senior Frontend Software Engineer</h3>
+							<p class="company">SAP Fioneer</p>
+							<p class="period">2025 - Present</p>
+							<p class="description">
+								<p>
+									Technical lead for the frontend of the Credit Workplace (CWP).
+								</p>
+								<p>
+									Analysis and conception of architectural enhancements of the
+									product.
+								</p>
+								<p>
+									Ensuring highest frontend quality standards. Working in an
+									ambitious, international team
+								</p>
+							</p>
+						</div>
+					</div>
+					<div class="timeline-entry">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<h3 class="role">Senior Software Developer</h3>
+							<p class="company">Senacor Technologies AG</p>
+							<p class="period">2024 - 2025</p>
+							<p class="description">
+								<p>
+									Analysis, conception, and implementation of a micro frontend
+									migration starting from a monolithic architecture with a focus
+									on productization.
+								</p>
+								<p>
+									Close collaboration with developers, designers and product
+									owners to ensure high-quality software applications.
+								</p>
+								<p>
+									Providing technical consulting and guidance to colleagues.
+								</p>
+							</p>
+						</div>
+					</div>
+					<div class="timeline-entry">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<h3 class="role">Software Developer</h3>
+							<p class="company">Senacor Technologies AG</p>
+							<p class="period">2022 - 2024</p>
+							<p class="description">
+								<p>
+									Implementation of programming activities in international
+									project teams with a focus on frontend development.
+								</p>
+								<p>
+									Development of a web application for managing credit decisions
+									as part of a co-innovation project between a financial
+									software solutions provider and a German credit institution.
+								</p>
+							</p>
+						</div>
+					</div>
+					<div class="timeline-entry">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<h3 class="role">Corporate Student</h3>
+							<p class="company">Syntegon Technology GmbH</p>
+							<p class="period">2019 - 2022</p>
+							<p class="description">
+								<p>
+									Learning practical fundamentals in the field of Computer
+									Science and Information Technology. Managed various projects
+									focusing on automation and network technology.
+								</p>
+								<p>Administration of internal VMware virtualization servers.</p>
+								<p>
+									Completed bachelor thesis in the field of radio technology
+									(LoRaWAN).
+								</p>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content timeline">
+					<div class="timeline-entry">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<h3 class="role">B.Sc. Information Technology</h3>
+							<p class="company">DHBW Mannheim</p>
+							<p class="period">2019 - 2022</p>
+							<p class="description">Grade: 1.4</p>
+						</div>
+					</div>
+					<div class="timeline-entry">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<h3 class="role">A-Levels</h3>
+							<p class="company">Goethe Gymnasium Reichenbach</p>
+							<p class="period">2011 - 2019</p>
+							<p class="description">Grade: 1.8</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<ContactCTA />
+</BaseLayout>
+
+<style>
+	/* CV related */
+	.timeline {
+		position: relative;
+		padding: 2rem 0;
+	}
+
+	.timeline::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 2px;
+		height: 100%;
+		background: var(--gradient-accent);
+		opacity: 0.5;
+	}
+
+	.timeline-entry {
+		position: relative;
+		padding-left: 2rem;
+		margin-bottom: 3rem;
+	}
+
+	.timeline-dot {
+		position: absolute;
+		left: -6px;
+		top: 0;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background: var(--gradient-accent);
+		filter: drop-shadow(0 0 6px var(--accent-light));
+	}
+
+	.timeline-content {
+		background: var(--gray-999_40);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		box-shadow: var(--shadow-sm);
+	}
+
+	.timeline-content h3.role {
+		color: var(--gray-0);
+		font-size: var(--text-xl);
+		margin: 0;
+	}
+
+	.timeline-content .company {
+		color: var(--accent-regular);
+		font-weight: 600;
+		margin: 0.5rem 0;
+	}
+
+	.timeline-content .period {
+		color: var(--gray-300);
+		font-size: var(--text-sm);
+		margin-bottom: 1rem;
+	}
+
+	.timeline-content .description {
+		color: var(--gray-200);
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.skill-category {
+		background: var(--gray-999_40);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		box-shadow: var(--shadow-sm);
+		border: 1px solid var(--gray-900);
+	}
+
+	.skill-category h3 {
+		color: var(--accent-regular);
+		font-size: var(--text-lg);
+		margin: 0 0 1rem 0;
+	}
+
+	.skill-category ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.skill-category li {
+		color: var(--gray-200);
+		margin: 0.5rem 0;
+		padding-left: 1.5rem;
+		position: relative;
+	}
+
+	.skill-category li::before {
+		content: '•';
+		color: var(--accent-regular);
+		position: absolute;
+		left: 0;
+		font-weight: bold;
+	}
+
+	/* Page related */
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 6rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
