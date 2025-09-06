@@ -11,6 +11,7 @@
 		"lint": "eslint . --ext .js,.ts,.astro"
 	},
 	"dependencies": {
+		"@astrojs/sitemap": "^3.5.1",
 		"astro": "^5.13.5"
 	},
 	"devDependencies": {
