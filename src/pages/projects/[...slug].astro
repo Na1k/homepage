@@ -98,6 +98,8 @@ const { Content } = await render(entry);
 	.tags {
 		display: flex;
 		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 	.description {
@@ -155,6 +157,11 @@ const { Content } = await render(entry);
 	}
 
 	@media (min-width: 50em) {
+		.tags {
+			flex-wrap: wrap;
+			justify-content: flex-start;
+		}
+
 		.back-link {
 			display: block;
 			align-self: flex-start;
